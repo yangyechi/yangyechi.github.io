@@ -23,18 +23,26 @@
            if(Username == "123" && Password == "123")
            {
            	 alert("登录成功");
+           	 document.getElementById("username").value = "";
+           	 document.getElementById("password").value = "";
            }
            else if(Username == "" && Password != ""){
            	alert("用户名不能为空");
+           	 document.getElementById("username").value = "";
+           	 document.getElementById("password").value = "";
            }
            else if(Username != "" && Password == ""){
            	alert("密码不能为空");
+           	 document.getElementById("username").value = "";
+           	 document.getElementById("password").value = "";
            }
            else if(Username == "" && Password == ""){
            	alert("用户名和密码不能为空");
            }
            else{
-           		alert("用户名或密码错误");
+                alert("用户名或密码错误");
+           	document.getElementById("username").value = "";
+           	document.getElementById("password").value = "";
            }
         }
     </script>
