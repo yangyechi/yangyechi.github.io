@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.team69.cet.mapper.Student_information_mapper">
+ <select id="findStudent_informationInfo" resultType="com.team69.cet.entity.Student_information">
+  select   *   from  Student_information ; 
+ </select>
+ 
+ <select id="findbystduentnumber" resultType="com.team69.cet.entity.Student_information">
+  select   *   from  Student_information where student_number = #{student_number,jdbcType=VARCHAR}; 
+ </select>
+ 
+ <select id="findByIDNumber" resultType="com.team69.cet.entity.Student_information">
+  select   *   from  Student_information where ID_number = #{ID_number,jdbcType=VARCHAR}; 
+ </select>
+ 
+ <insert id="InsertStudent_information" parameterType="com.team69.cet.entity.Student_information" >
+   insert into Student_information (ID_number,name,class_name,student_number,professional,university,college)  
+    values (#{ID_number}, #{name},#{class_name},#{student_number},#{professional},#{university},#{college}) 
+ </insert> 
+ <update id="UpdateStudent_information" parameterType="com.team69.cet.entity.Student_information">
+ update Student_information set ID_number = #{ID_number},name= #{name},class_name = #{class_name},professional=#{professional},university=#{university},college=#{college} where student_number = #{student_number}
+ </update>
+ <delete id="delete" parameterType="java.lang.String">
+ delete from Student_information where student_number = #{student_number,jdbcType=VARCHAR} 
+ </delete>
+</mapper>

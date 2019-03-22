@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.team69.cet.mapper.Pay_information_mapper">
+ <select id="findPay_informationInfo" resultType="com.team69.cet.entity.Pay_information">
+  select   *   from  Pay_information ; 
+ </select>
+ 
+ <select id="findbyindent_number" resultType="com.team69.cet.entity.Pay_information">
+  select   *   from  Pay_information where indent_number = #{indent_number,jdbcType=VARCHAR}; 
+ </select>
+
+ 
+ <insert id="InsertPay_information" parameterType="com.team69.cet.entity.Pay_information" >
+   insert into Pay_information (ID_number,pay_type,money_type,indent_number)  
+    values (#{ID_number}, #{pay_type},#{money_type},#{indent_number}) 
+ </insert> 
+ <update id="UpdatePay_information" parameterType="com.team69.cet.entity.Pay_information">
+ update Pay_information set ID_number = #{ID_number},pay_type= #{pay_type},money_type = #{money_type} where indent_number = #{indent_number}
+ </update>
+ <delete id="delete" parameterType="java.lang.String">
+ delete from Pay_information where indent_number = #{indent_number,jdbcType=VARCHAR} 
+ </delete>
+</mapper>

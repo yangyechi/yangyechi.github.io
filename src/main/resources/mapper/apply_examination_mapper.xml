@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.team69.cet.mapper.apply_examination_mapper">
+ <select id="findapply_examinationInfo" resultType="com.team69.cet.entity.apply_examination">
+  select   *   from  apply_examination ; 
+ </select>
+ 
+ <select id="findbyexamregistration_number" resultType="com.team69.cet.entity.apply_examination">
+  select   *   from  apply_examination where examregistration_number = #{examregistration_number,jdbcType=VARCHAR}; 
+ </select>
+
+<select id="findByIdNumber" resultType="com.team69.cet.entity.apply_examination">
+  select   *   from  apply_examination where ID_number = #{ID_number,jdbcType=VARCHAR}; 
+ </select>
+ 
+ <insert id="Insertapply_examination" parameterType="com.team69.cet.entity.apply_examination" >
+   insert into apply_examination (ID_number,name,sex,examregistration_number,examination_location,examination_number)  
+    values (#{ID_number}, #{name},#{sex},#{examregistration_number},#{examination_location},#{examination_number}) 
+ </insert> 
+ <update id="Updateapply_examination" parameterType="com.team69.cet.entity.apply_examination">
+ update apply_examination set ID_number = #{ID_number},name= #{name},sex = #{sex},examination_location = #{examination_location},examination_number = #{examination_number} where examregistration_number = #{examregistration_number}
+ </update>
+ <delete id="delete" parameterType="java.lang.String">
+ delete from apply_examination where examregistration_number = #{examregistration_number,jdbcType=VARCHAR} 
+ </delete>
+ 
+</mapper>

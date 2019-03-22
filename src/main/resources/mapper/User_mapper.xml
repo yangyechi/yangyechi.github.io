@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.team69.cet.mapper.User_mapper">
+ <select id="findUserInfo" resultType="com.team69.cet.entity.User">
+  select   *   from  User ; 
+ </select>
+ 
+ <select id="findByNameAndPassword" resultType="com.team69.cet.entity.User">
+  select   *   from  User where user_name = #{user_name,jdbcType=VARCHAR}
+  and password = #{password,jdbcType=VARCHAR}; 
+ </select>
+ 
+  <select id="findbyid" resultType="com.team69.cet.entity.User">
+  select   *   from  User where ID_number = #{ID_number,jdbcType=VARCHAR}; 
+ </select>
+  <select id="findByEmail" resultType="com.team69.cet.entity.User">
+  select   *   from  User where user_name = #{user_name,jdbcType=VARCHAR}; 
+ </select>
+  <insert id="InsertUser" parameterType="com.team69.cet.entity.User" >
+  <!-- insert  User ;  
+  写插入sql -->
+   insert into User (ID_number,name,sex,user_name,password)  
+    values (#{ID_number}, #{name},#{sex},#{user_name},#{password}) 
+ </insert> 
+ <update id="UpdateUser" parameterType="com.team69.cet.entity.User">
+ update User set password = #{password},name= #{name},sex = #{sex},user_name=#{user_name} where ID_number = #{ID_number}
+ </update>
+ <delete id="delete" parameterType="java.lang.String">
+ delete from User where ID_number = #{ID_number,jdbcType=VARCHAR} 
+ </delete> 
+</mapper>

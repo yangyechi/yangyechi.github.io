@@ -1,0 +1,134 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<title>CET报名网</title>
+		<link href="../css/ufo.css" th:href="@{/css/bufo.css}" rel="stylesheet" type="text/css" />
+		<link href="../css/lanrenzhijia.css?v1.04" th:href="@{/css/lanrenzhijia.css?v1.04}" type="text/css" rel="stylesheet" />
+		<link href="../css/login_p_1128.css" th:href="@{/css/login_p_1128.css}" rel="stylesheet" type="text/css" />
+		<script src="../js/jquery-1.6.2.min.js" type="text/javascript"></script>
+		<script src="../js/Login.js" type="text/javascript"></script>
+		<script src="../js/Common.js"></script>
+		<script src="../js/public.js"></script>
+		<script src="../js/jquery-1.6.2.min.js" type="text/javascript"></script>
+		<script src="../js/wait.js" type="text/javascript"></script>
+	</head>
+	<style type="text/css">
+		body {
+			width: 100%;
+			margin: 0;
+			font-size: 12px;
+			font-family: "微软雅黑", "宋体";
+			color: #1f1e23;
+			text-align: center;
+		}
+		
+		#footer {
+			width: 980px;
+			margin: 0 auto;
+			text-align: center;
+		}
+		
+		#footer p {
+			font-size: 12px;
+			color: #666;
+			font-family: Arial, "微软雅黑";
+			display: block;
+			margin-top: 5px;
+		}
+		
+		.footer_title {
+			font-weight: bold;
+			color: #666;
+			font-size: 14px;
+			line-height: 2em;
+		}
+	</style>
+
+	<body>
+		<form id="form1" action="#" th:action="@{/dologin}" th:object="${user}" method="POST">
+			<input name="__RequestVerificationToken" type="hidden" value="TvHcGVugHBh3b27u2OL--RiGfjIAC8YZvyNNQGfXj09KtCWaabA5mQb5yqGJefO3oG6lbDWG_MB46iBK0eiTbED0Ffj8e4RE8DcclkLRO4g1" />
+			<div style="width:100%;background:url(../img/top_logo.jpg) repeat-x; ">
+				<div id="top">
+					<div id="logo">
+						<div id="" class="">
+							<ul id="logo_nav">
+								<li>
+									<a href="#">客服电话：</a>
+								</li>
+							</ul>
+						</div>
+						<div style="clear:both"></div>
+						<div id="" class="huangs02">010-62987880</div>
+					</div>
+					<div id="nav">
+						<div id="" style="width:980px; text-align:center;">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="login_box" style="margin-top:25px;">
+				<div class="login_form">
+					<img src="../img/login_title.jpg" th:src="@{/img/login_title.jpg}" width="500" height="67" />
+
+					<div class="login_form_box" style="margin-left:0;margin-top:15px;">
+						<div class="loginForm_01">
+							<label class="" for="pwdInput"><strong>账&nbsp;&nbsp;&nbsp;号</strong>：</label>
+							<input name="user_name" type="text" class="input_box" id="txtUserName" tabindex="2"  placeholder="请输入用户名"/>
+						</div>
+						<div class="loginForm_02">
+							<label class="#" for="pwdInput"><strong>密&nbsp;&nbsp;&nbsp;码</strong>：</label>
+							<input name="password" type="password" class="input_box" id="txtPassword" tabindex="2"  placeholder="请输入密码"/>&nbsp;<span class="findpassword"></span>
+						</div>
+						<p>没有通行证?
+							<a href="register.html">点击注册</a>
+						</p>
+
+						<div id="button" style="margin-top:5px;">
+							<button id="ibtnLogin" name="ibtnLogin" ActionControl="1" onmousemove="this.className='button_onmousemove'" onmouseout="this.className='button_onmouseout'" class="login_button" tabindex="6" type="button" onclick="return submitLogin()">
+                            登　录
+                        </button> &nbsp;
+							<button id="" class="login_button" onmousemove="this.className='button_onmousemove'" onmouseout="this.className='button_onmouseout'" tabindex="6" type="reset">
+                            重　置
+                        </button>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="footer">
+				<div id="">
+					<p>
+						<span class="footer_title">COPYRIGHT 中华人民共和国教育部考试中心 All RIGHTS RESERVED</span><br /> 京ICP备05031027号
+						<br />
+					</p>
+				</div>
+			</div>
+
+			<input id="hdnLoginMode" name="hdnLoginMode" type="hidden" />
+			<input id="hdnReturnUrl" name="hdnReturnUrl" value="http://cet.etest.net.cn/Home/VerifyPassport/?LoginType=0" type="hidden" />
+			<input id="hdnRedirectUrl" name="hdnRedirectUrl" type="hidden" />
+			<input id="HiddenAccessToken" name="HiddenAccessToken" type="hidden" />
+			<input id="HiddenPublicKeyExponent" value="As2Ssgk0AMikkiMA" name="HiddenPublicKeyExponent" type="hidden" />
+			<input id="HiddenPublicKeyModulus" value="Bt4GtgCAb5k99k5b" name="HiddenPublicKeyModulus" type="hidden" />
+			<input id="HiddenSafe" name="HiddenSafe" type="hidden" />
+		</form>
+
+      <script th:inline="javascript">
+		var error = [[${error}]];
+		$(document).ready(function () {
+			if(error!=null){
+				/*
+				 swal({
+		         	title : "温馨提示",
+		         	text : error
+		      	});
+				*/
+				alert(error);
+			}
+		});
+
+	</script>
+	</body>
+
+</html>

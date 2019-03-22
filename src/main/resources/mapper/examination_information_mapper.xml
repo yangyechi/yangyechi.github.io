@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.team69.cet.mapper.examination_information_mapper">
+ <select id="findexamination_informationInfo" resultType="com.team69.cet.entity.examination_information">
+  select   *   from  examination_information ; 
+ </select>
+ 
+  <select id="findbyexamination_number" resultType="com.team69.cet.entity.examination_information">
+  select   *   from  examination_information where examination_number = #{examination_number,jdbcType=INTEGER}; 
+ </select>
+ 
+ <select id="findByStudentNumber" resultType="com.team69.cet.entity.examination_information">
+  select   *  from  examination_information where student_number = #{student_number,jdbcType=VARCHAR}; 
+ </select>
+ 
+ <insert id="Insertexamination_information" parameterType="com.team69.cet.entity.examination_information" >
+   insert into examination_information (student_number,examination_number,type,level)  
+    values (#{student_number}, #{examination_number},#{type},#{level}) 
+ </insert> 
+ <update id="Updateexamination_information" parameterType="com.team69.cet.entity.examination_information">
+ update examination_information set type= #{type},level= #{level} where student_number = #{student_number}
+ </update>
+ <delete id="delete" parameterType="java.lang.Integer">
+ delete from examination_information where examination_number = #{examination_number,jdbcType=INTEGER} 
+ </delete>
+</mapper>

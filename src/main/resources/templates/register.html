@@ -1,0 +1,201 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="../css/login.css" th:href="@{/css/login.css}"/>
+    <title> ETEST通行证</title>
+    <script src="../js/jquery-1.6.2.min.js" 
+    th:src="@{/js/jquery-1.6.2.min.js}"
+    type="text/javascript">
+    </script>
+    
+    <script src="../js/Common.js" th:src="@{/js/Common.js}" type="text/javascript"></script>
+    <script th:inline="javascript">
+    
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?187bdd36688721ea2d9f12a3fe912e0c";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        
+    </script>
+</head>
+
+<body>
+
+    <div align="center" style="margin-top:20px;">
+        <div class="top_con">
+            <div class="top_con_out">
+                <div class="top_con_logo">
+                    <img src="../images/logo_login.gif"  th:src="@{/images/logo_login.gif}" border="0" usemap="#Map" /><map name="Map" id="Map"><area shape="rect" coords="2,19,137,64" href="#" /></map>
+                </div>
+                <div class="top_con_link2">
+                    <ul>
+                        <li class="tb"><a href="index.html" th:href="@{index}">首页</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+        
+
+<script src="../js/ControlToLabel.js" th:src="@{/js/ControlToLabel.js}" type="text/javascript"></script>
+<script src="../js/public.js" th:src="@{/js/public.js}"></script>
+<script src="../js/register.js" th:src="@{/js/register.js}"></script>
+
+   
+   
+
+<style type="text/css">
+    .redStar {
+        color: #ff0000;
+        margin-left: 5px;
+        vertical-align: middle;
+        display: none;
+    }
+
+    .modueldiv {
+        display: none;
+        background-color: #888;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        /*兼容IE7、8 */
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+        filter: alpha(opacity=50);
+        opacity: .5;
+    }
+</style>
+<div class="modueldiv ">
+ </div>
+<div id="popDiv" style="z-index: 80001; position: fixed; display: none;">
+    <div style="width: 444px; position: relative; border-radius: 5px;">
+        <div style="width: 444px; height: 30px; background-color: #3393E9; padding-top: 5px;">
+            <p style="color: white; font-size: 16px;">邮箱确认</p>
+        </div>
+        <div style="background: #fff; border: 1px solid #ccc; padding: 10px;">
+            <div style="float: left; width: 100%; padding-bottom: 10px;">
+                <div align="left" style="font-size: 16px; padding: 15px; color: #666;">
+                    <p>
+                        请再次确认您的邮箱：
+                    </p>
+                    <p style="text-align: center; margin-top: 20px;" id="pemail">
+
+                    </p>
+                </div>
+                <div style="font-size: 14px; margin-top: 10px;" align="center">
+                    <a href="#" onclick="btn_cancel()" style="display: inline-block; padding: 5px; background: #3393E9; color: #FFFFFF; border: 1px solid #3393E9; text-decoration: none">
+                        取消
+                    </a> <a href="#" onclick="btn_sure()" style="display: inline-block; padding: 5px; background: #3393E9; color: #FFFFFF; border: 1px solid #3393E9; text-decoration: none; margin-left: 20px;">
+                        确定
+                    </a>
+                </div>
+            </div>
+            <div style="clear: both;">
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="form1" action="#" th:action="@{/doRegiste}" th:object="${user}" method = "POST">
+    <input type="hidden" name="ReturnUrl"/>
+    <div class="center_con1">
+        <div class="center_con_left">
+            <div class="sign_logo"></div>
+            <div class="input_sign1" align="left">
+                <div style="border: 1px solid #a7dbff; padding: 15px; margin-bottom: 20px; background-color: #e0effe; border-radius: 6px;">
+                    <div class="input_sub" align="left">
+                        <p style="margin-right: 15px; margin-left: 80px; font-size: 12px; color: #666; margin-bottom: 5px;">提示：邮箱将作为您的登录账号</p>
+                        <label>电子邮箱：</label><input id="user_name" name="user_name" type="text" class="input_style"/>
+                    </div>
+                    <div class="input_sub1" align="left">
+                        <label></label>
+                    </div>
+                    <div class="input_sub1" align="left">
+                        <p style="margin-right: 50px; margin-left: 52px; font-size: 12px; color: #666; margin-top: 5px;">提示：密码长度为8-18位字符</p>
+                        <label>密码：</label><input id="password" name="password" type="password" class="input_style"/>
+
+                    </div>
+                    <div class="input_sub" align="left">
+                        <label>密码确认：</label><input id="txtPasswordRepeat" name="txtPasswordRepeat" type="password" class="input_style"/>
+
+                    </div>
+                    <p style="font-weight: bolder; margin-left: 15px; margin-bottom: 10px; color: #666">个人资料</p>
+                     <div style="border-bottom: 1px solid #a7dbff; border-top: 1px solid #a7dbff; padding: 15px; margin-bottom: 20px;">
+
+                    <div class="input_sub" align="left">
+                        <label style="color: #888">&nbsp;性别：</label>
+                        <select id="sex" name="sex" class="input_style3"  style="overflow: hidden">
+                            <option value="-1">-请选择-</option>
+
+                                <option value="1">男</option>
+                                <option value="2">女</option>
+                        </select>
+
+                    </div>
+                    <div class="input_sub2" align="left">
+                        <label style="color: #888">身份证：</label><input id="ID_number" name="ID_number" type="text" class="input_style"/><label class="redStar">*</label>
+                    </div>
+                    <div class="input_sub1" align="left">
+                        <label style="color: #888">姓名：</label><input id="name" name="name" type="text" class="input_style"/><label class="redStar">*</label>
+                    </div>
+                </div>
+                </div>
+                
+               
+                
+            </div>
+            <div style="clear: both;"> </div>
+            <div style="margin-top: 15px;">
+                <input ID="btnSubmit" type="button" Style="width: 80px; height: 25px;" value="提交" onclick="sumbit()"/>
+            </div>
+        </div>
+        <div class="center_con_right">
+            <div class="login_con">
+                <div style="font-size: 18pt; padding-top: 10px; color: #333; font-size: 14px; margin-top: 50px; margin-left: 25px;" align="left">
+                    <strong>已经有ETEST通行证,直接登录：</strong>
+                </div>
+                <div align="center" style="margin-top: 35px;">
+                    <a href="signUp.html" th:href="@{signUp}">
+                        <img src="../images/login_button.png" th:src="@{/images/login_button.png}"  border="0"/>
+                    </a>
+                </div>
+                <div class="line_bg_sign"></div>
+                <div class="other_select1" align="left">
+                </div>
+            </div>
+        </div>
+        <br/>
+    </div>
+    <div class="foot_con"></div>
+</form>
+
+
+
+
+        <div id="foot">Copyright <span style="font-size:18px;">&copy;</span> 2017 教育部考试中心版权所有.保留所有权利 (Powered by :2B792B3)</div>
+    </div>
+    
+    <script th:inline="javascript">
+		var error = [[${error}]];
+		$(document).ready(function () {
+			if(error!=null){
+				/*
+				 swal({
+		         	title : "温馨提示",
+		         	text : error
+		      	});
+				*/
+				alert(error);
+			}
+		});
+
+	</script>
+</body>
+</html>

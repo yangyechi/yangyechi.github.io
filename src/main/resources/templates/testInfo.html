@@ -1,0 +1,154 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>全国大学英语四、六级考试报名网</title>
+    <link href="http://resource.etest.net.cn/project/CET/Content/ufo3.css?v=3.0" rel="stylesheet" type="text/css" />
+    <link href="http://resource.etest.net.cn/project/CET/Content/lanrenzhijia.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="http://resource.etest.net.cn/project/CET/scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/html2canvas.min.js"></script>
+    <script type="text/javascript" src="../js/exportpdf.js"></script>
+    <script type="text/javascript" src="../js/jspdf.js"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?b783c240a46ec85f773c7441178a1681";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?7729f6cba7f441f2ed471a565f039627";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0466d8c557c7aabe83f440702897b498";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+    </script>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    
+        #topdiv{
+	padding: 0;
+	margin: 0;
+	font-size: 12px;
+	font-family: "微软雅黑", "宋体";
+	color: #1f1e23;
+	background:url(http://resource.etest.net.cn/project/CET/images/top_bg.jpg) repeat-x;
+}
+        #footer{width:980px; margin:0 auto; text-align:center; border-top:1px solid #666;}
+#footer p{ font-size:12px; color:#666; font-family:Arial, "微软雅黑"; display:block;  margin-top:5px;}
+.footer_title{ font-weight:bold; color:#666; font-size:14px; line-height:2em;}
+    </style>
+</head>
+<body>
+
+
+
+    <div id="topdiv">
+        <div id="top">
+            <div id="logo">
+                <div id="" class="">
+                    <ul id="logo_nav">
+                        <li><a href="#">客服电话：</a></li>
+                    </ul>
+                </div>
+                <div style="clear:both"></div>
+                <div id="" class="huangs02">010-62987880</div>
+            </div>
+            <div id="nav">
+                <div id="" style="width:980px; text-align:center;">
+                    <ul class="">
+                          <li style="padding-right:0px;"><a href="#" target="_parent" style="padding-top:3px;"><img src="../img/home.png" width="16" height="14" alt="" /></a></li>
+                    <li style="padding-left:0px;"><a href="../Home/index.html" target="_parent">首页</a> | </li>
+                    <li><a href="../Home/ExamIntroduction.html" target="_parent">考试简介</a> | </li>
+                    <li><a href="../Home/CandidateNotice.html" target="_parent">考生须知</a> | </li>
+                    <li><a href="../Home/TestDatePlan.html" target="_parent">考试时间</a> | </li>
+                    <li><a href="../Home/RegisterFlow.html" target="_parent">报名流程</a> | </li>
+                    <li><a href="../Home/CommonProblem.html" target="_parent">常见问题</a> | </li>
+                    <li><a href="../Home/SpecialNotice.html" target="_parent">特别提示</a> | </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<div class="page1" id = "contents">
+        <form id="testInfoForm"  action="#">
+            <table width="980" border="0" bgcolor="#666666" cellpadding="0" cellspacing="1" style="line-height:40px; margin:0 auto;">               
+                <tr>
+                    <td colspan="4" align="center" bgcolor="#313131"><p style="color:#fff;font-size:24px;font-weight:bold;">2018年四六级准考证信息</p></td>
+                </tr>
+                <tr>
+                    <td align="center" bgcolor="#FFFFFF"><p><span style="color:red;"></span>姓名</p></td>
+                    <td align="center" bgcolor="#FFFFFF"><p th:text="${session.applyExaminationInfo.name}"><span style="color:red;"></span>无</p></td>
+                    <td align="center" bgcolor="#FFFFFF"><p>考试地点</p></td>
+                    <td align="center" bgcolor="#FFFFFF"><p th:text="${session.applyExaminationInfo.examination_location}"><span style="color:red;"></span>传参性别</p></td>
+                    
+                </tr>
+                <tr>
+                    
+                    <td align="center" bgcolor="#FFFFFF"><p><span style="color:red;"></span>性别</p></td>
+                    <td align="center" bgcolor="#FFFFFF"><p th:text="${session.applyExaminationInfo.sex}"><span style="color:red;"></span>无</p></td>
+                    <td align="center" bgcolor="#FFFFFF"><p>考试等级</p></td>
+                    <td align="center" bgcolor="#FFFFFF"><p th:if="${session.exaInfo}" th:text="${session.exaInfo.level}"><span style="color:red;"></span></p></td>
+                </tr>
+                <tr>
+                    <td align="center" bgcolor="#FFFFFF"><p><span style="color:red;"></span>身份证号</p></td>
+                    <td align="center" bgcolor="#FFFFFF"><p th:text="${session.applyExaminationInfo.ID_number}"><span style="color:red;"></span>无</p></td>
+                    <td align="center" bgcolor="#FFFFFF"><p>考试类型</p></td>
+                    <td align="center" bgcolor="#FFFFFF"><p th:if="${session.exaInfo}" th:text="${session.exaInfo.type}"><span style="color:red;"></span></p></td>
+                
+                </tr>
+                <tr>
+                    <td align="center" bgcolor="#FFFFFF"><p><span style="color:red;"></span>准考证号</p></td>
+                    <td align="center" bgcolor="#FFFFFF"><p th:text="${session.applyExaminationInfo.examregistration_number}"><span style="color:red;"></span></p></td>
+                    <td align="center" bgcolor="#FFFFFF"><p></p></td>
+                    <td align="center" bgcolor="#FFFFFF"><p><span style="color:red;"></span></p></td>
+                
+                </tr>
+                
+                <tr>                   
+                   <td height="40" colspan="4" align="center" bgcolor="#FFFFFF"><input id="exportpdf" style="width:140px;height:30px;background:#ae000a;color:#fff;line-height:30px;cursor:pointer;outline:none;border:0;text-align:center;"  value="打印准考证" type="button" /> </td>                  
+                </tr>
+            </table>
+        </form>
+       
+    </div>
+  
+     <div align="center" style="color:red; text-align:left; padding-left:55px;">
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 注:&nbsp;1.口试准考证打印时间：5月14日<br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.笔试准考证打印时间：请以考点通知时间为准，如考点采用集体打印方式，请联<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;系学校相关部门领取准考证。
+        </div>
+  
+    <div style="clear:both;"></div>
+    <div style="width:100% ;margin:2em 0;">
+        <div id="footer">
+            <div id="">
+                <p>
+                    <span class="footer_title">COPYRIGHT 中华人民共和国教育部考试中心 All RIGHTS RESERVED</span><br />
+                    京ICP备05031027号 (Powered by :DC47DCE)<br /><font color="red">建议浏览器：火狐浏览器、谷歌浏览器、IE9+、360浏览器（选择极速模式）</font><br />
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

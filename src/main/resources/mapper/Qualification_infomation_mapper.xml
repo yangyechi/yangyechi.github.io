@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.team69.cet.mapper.Qualification_infomation_mapper">
+ <select id="findQualification_infomationInfo" resultType="com.team69.cet.entity.Qualification_infomation">
+  select   *   from  Qualification_infomation ; 
+ </select>
+ 
+ <select id="findbyqualification" resultType="com.team69.cet.entity.Qualification_infomation">
+  select   *   from  Qualification_infomation where qualification = #{qualification,jdbcType=VARCHAR}; 
+ </select>
+ 
+ <select id="findByIdNumber" resultType="com.team69.cet.entity.Qualification_infomation">
+  select   *   from  Qualification_infomation where ID_number = #{ID_number,jdbcType=VARCHAR}; 
+ </select>
+ 
+ <insert id="InsertQualification_infomation" parameterType="com.team69.cet.entity.Qualification_infomation" >
+   insert into Qualification_infomation (ID_number,qualification,level_six,level_four,absence)  
+    values (#{ID_number}, #{qualification},#{level_six},#{level_four},#{absence}) 
+ </insert> 
+ <update id="UpdateQualification_infomation" parameterType="com.team69.cet.entity.Qualification_infomation">
+ update Qualification_infomation set ID_number = #{ID_number},level_six= #{level_six},level_four = #{level_four},absence=#{absence} where qualification = #{qualification}
+ </update>
+ <delete id="delete" parameterType="java.lang.String">
+ delete from Qualification_infomation where qualification = #{qualification,jdbcType=VARCHAR} 
+ </delete>
+</mapper>
